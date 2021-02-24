@@ -59,7 +59,7 @@ resource "azurerm_storage_account" "test-storage-account" {
 
 resource "azurerm_storage_container" "test-container" {
   name                  = "vhds"
-  storage_account_name  = azurerm_storage_account.test-storage-account
+  storage_account_name  = azurerm_storage_account.test-storage-account.name
   container_access_type = "private"
 }
 
