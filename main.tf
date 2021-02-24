@@ -46,7 +46,7 @@ resource "azurerm_network_interface" "test-network" {
 }
 
 resource "azurerm_storage_account" "test-storage-account" {
-  name                     = "storage-account"
+  name                     = "storageaccount"
   resource_group_name      = azurerm_resource_group.demo-rg.name
   location                 = azurerm_resource_group.demo-rg.location
   account_tier             = "Standard"
@@ -64,8 +64,8 @@ resource "azurerm_storage_container" "test-container" {
 }
 
 
-resource "azurerm_virtual_machine" "sdp-test" {
-  name                  = "sdp-test"
+resource "azurerm_virtual_machine" "test-vm" {
+  name                  = "testvm"
   resource_group_name   = data.azurerm_resource_group.demo-rg.name
   location              = data.azurerm_resource_group.demo-rg.location
   network_interface_ids = [azurerm_network_interface.test-network.id]
