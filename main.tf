@@ -5,14 +5,8 @@ provider "azurerm" {
 
 }
 
-resource "azurerm_resource_group" "demo-rg" {
-  name = "demo-rg"
-  location = "UK South"
-}
-
 data "azurerm_resource_group" "demo-rg" {
-  depends_on = [azurerm_resource_group.demo-rg]
-  name = "demo-rg"
+  name = "${var.region}-${var.id}-application-resources"
 }
 
 output "resource_group_id" {
@@ -47,8 +41,8 @@ resource "azurerm_network_interface" "test-network" {
 
 resource "azurerm_storage_account" "test-storage-account" {
   name                     = "storageaccount"
-  resource_group_name      = azurerm_resource_group.demo-rg.name
-  location                 = azurerm_resource_group.demo-rg.location
+  resource_group_name      = data.azurerm_resource_group.demo-rg.name
+  location                 = data.azurerm_resource_group.demo-rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
