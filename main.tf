@@ -4,7 +4,7 @@ terraform {
   backend "azurerm" {
     resource_group_name  = "uksouth-206339-application-resources"
     storage_account_name = "uksouthapp1be"
-    container_name       = "tfstate"
+    container_name       = "terraform"
     key                  = "terraform.tfstate"
   }
 }
