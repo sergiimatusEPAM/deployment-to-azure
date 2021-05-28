@@ -16,7 +16,7 @@ data "azurerm_subnet" "aks_pub_subnet" {
 }
 
 data "azurerm_subnet" "restricted_subnet" {
-  name		       = var.restricted_subnet_name
-   virtual_network_name = var.vnet_name
+  name                 = var.restricted_subnet_name
+  virtual_network_name = var.vnet_name
   resource_group_name  = var.vnet_resource_group_name
 }

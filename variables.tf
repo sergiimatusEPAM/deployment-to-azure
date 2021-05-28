@@ -9,7 +9,7 @@ variable "location" {
   type        = string
   description = "azure region to deploy all infra to"
 }
-variable "resource_group_name"{
+variable "resource_group_name" {
   type        = string
   description = "VM resource group name"
 }
@@ -30,15 +30,15 @@ variable "admin_password" {
   type        = string
   description = "the administrator's password"
 }
-variable "vnet_name"{
+variable "vnet_name" {
   type        = string
   description = "vnet name"
 }
-variable "vnet_resource_group_name"{
+variable "vnet_resource_group_name" {
   type        = string
   description = "vnet resource group name"
 }
-variable "azurerm_subnet_name"{
+variable "azurerm_subnet_name" {
   type        = string
   description = "subnet name"
 }
@@ -54,10 +54,10 @@ variable "enterprise_subnet_name" {
 }
 
 variable "public_subnet_name" {
-  type = string
+  type        = string
   description = "Public subnet name"
 }
 variable "restricted_subnet_name" {
-  type = string
+  type        = string
   description = "Restricted Subnet name"
 }
