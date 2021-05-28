@@ -19,11 +19,6 @@ locals {
   global_tags = merge({ environment = var.vm_name }, var.environment_tags)
 }
 
-data "azurerm_virtual_network" "vnet" {
-  name                = var.vnet_name
-  resource_group_name = var.vnet_resource_group_name
-}
-
 resource "azurerm_network_interface" "nic" {
 
     name                         = "${var.vm_name}-nic-${var.location}"
