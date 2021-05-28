@@ -47,3 +47,17 @@ variable "environment_tags" {
   description = "tags to be added to all resources created by this environment"
   default     = {}
 }
+
+variable "enterprise_subnet_name" {
+  type        = string
+  description = "The name of the entreprise subnet"
+}
+
+variable "public_subnet_name" {
+  type = string
+  description = "Public subnet name"
+}
+variable "restricted_subnet_name" {
+  type = string
+  description = "Restricted Subnet name"
+}

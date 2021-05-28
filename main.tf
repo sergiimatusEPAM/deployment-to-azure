@@ -2,15 +2,12 @@
 terraform {
   required_version = ">=0.14.8"
   backend "azurerm" {
-    #resource_group_name  = "uksouth-206339-application-resources"
-    #storage_account_name = "uksouthapp1be"
-    #container_name       = "terraform"
-    #key                  = "terraform.tfstate"
   }
 }
 
 provider "azurerm" {
-  version = "2.26.0"
+  version ">= 2.0"
+  skip_provider_registration = true
   features {}
 }
 
@@ -36,16 +33,10 @@ resource "azurerm_network_interface" "nic" {
 
     ip_configuration {
         name                          = "${var.vm_name}-nic-config-${var.location}"
-        subnet_id                     = data.azurerm_subnet.azurerm_subnet.id
+        subnet_id                     = data.azurerm_subnet.enterprise_subnet.id
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.publicip.id
     }
-}
-
-data "azurerm_subnet" "azurerm_subnet" {
-  name                 = var.azurerm_subnet_name
-  virtual_network_name = var.vnet_name
-  resource_group_name  = var.vnet_resource_group_name
 }
 
 resource "azurerm_public_ip" "publicip" {
